@@ -22,7 +22,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+                  <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
                     <i class="fas fa-home"></i> Home
                   <% end %>
                 </li>
@@ -68,6 +68,13 @@
         </div>
       </nav>
     </header>
+    
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
     <%= yield %>
     <footer>
       <p class="text-center mt-5">CopyRight Infratop.inc</p>
